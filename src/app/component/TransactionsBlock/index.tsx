@@ -16,13 +16,16 @@ const TransactionsBlock: React.FC = () => {
     blockNumber?: string;
     address?: string;
   }) => {
-    fetch(`http://localhost:4040/api/transactions/${currentPage}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(filter),
-    })
+    fetch(
+      `https://test-bitmedia-labs-back.onrender.com/api/transactions/${currentPage}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(filter),
+      }
+    )
       .then((response) => {
         if (response.status === 400) {
           alert("Error!");
